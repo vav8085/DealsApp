@@ -1,0 +1,42 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.vav.dealsapp.dealbrowser"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile "com.google.code.gson:gson:$gsonVersion"
+    //noinspection GradleCompatible
+    compile "com.android.support:cardview-v7:$cardviewVersion"
+    compile "com.android.support:support-v4:$supportV4Version"
+    compile "com.android.support:recyclerview-v7:$recyclerViewVersion"
+    compile "com.android.support.constraint:constraint-layout:$constraintLayoutVersion"
+    compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    compile "com.squareup.retrofit2:converter-gson:$retrofitGsonConverterVersion"
+    compile "com.squareup.picasso:picasso:$picassoVersion"
+    compile "com.jakewharton:butterknife:$butterknifeVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$butterknifeCompilerVersion"
+    annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
+    provided "javax.annotation:jsr250-api:$jsrVersion"
+    compile "com.google.dagger:dagger:$daggerVersion"
+
+}
